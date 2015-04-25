@@ -30,11 +30,6 @@
                 </ul>
             </div> 
             <form ng-controller='commentController as commentCtrl' ng-submit='commentCtrl.addPunchline(joke)'>
-              <li class="list-group-item">
-                <h5>{{commentCtrl.userLine.text}}</h5>
-                <p class='pull-right'>~ {{"anonymous"}} <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></p>
-                &nbsp;                
-              </li>
               <comment></comment>
             </form>
           </div>
