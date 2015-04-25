@@ -1,0 +1,74 @@
+    $scope.jokes = [
+        {
+        setup: {
+            text: 'Why did the chicken run across the road?',
+            author: 'Abdullahi Mahamed'
+        },
+        punchline: [
+            {
+              text: 'She wanted to stretch her legs.',
+              author:'Jackie Marthart ',
+            },
+            {
+              text: 'To prove to the possum it could actually be done!',
+              author:'Larry Ball',
+            },
+            {
+              text: 'She was afraid someone would caesar!',
+              author:'Ibrahim Mahamed',
+            },
+            {
+              text: 'She wanted to lay it on the line.',
+              author:'Kate Hammer',
+            },
+        ]
+    },
+        {
+        setup: {
+            text: 'Why did the chicken run across the road?',
+            author: 'Abdullahi Mahamed'
+        },
+        punchline: [
+            {
+              text: 'She wanted to stretch her legs.',
+              author:'Jackie Marthart ',
+            },
+            {
+              text: 'To prove to the possum it could actually be done!',
+              author:'Larry Ball',
+            },
+            {
+              text: 'She was afraid someone would caesar!',
+              author:'Ibrahim Mahamed',
+            },
+            {
+              text: 'She wanted to lay it on the line.',
+              author:'Kate Hammer',
+            },
+        ]
+    },
+        {
+        setup: {
+            text: 'Why did the chicken run across the road?',
+            author: 'Abdullahi Mahamed'
+        },
+        punchline: [
+            {
+              text: 'She wanted to stretch her legs.',
+              author:'Jackie Marthart ',
+            },
+            {
+              text: 'To prove to the possum it could actually be done!',
+              author:'Larry Ball',
+            },
+            {
+              text: 'She was afraid someone would caesar!',
+              author:'Ibrahim Mahamed',
+            },
+            {
+              text: 'She wanted to lay it on the line.',
+              author:'Kate Hammer',
+            },
+        ]
+    }    
+    ];

@@ -1,0 +1,13 @@
+#contents{
+    margin:100px 100px 100px 100px;
+}
+.list-group-item p span{
+    margin-left:19px;
+}
+
+.form-control{
+    margin:0px;
+}
+.panel-default{
+    margin:0px;
+}
