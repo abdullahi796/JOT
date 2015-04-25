@@ -13,5 +13,12 @@
 }
 
 .green{
-    color: blue;    
+    color: #2ecc71;    
+}
+
+.red{
+    color: #e74c3c;    
+}
+.na{
+    color:#7f8c8d;
 }

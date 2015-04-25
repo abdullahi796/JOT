@@ -1,8 +1,8 @@
 <li class="list-group-item">
   <h5>{{punchline.text}}</h5>
   <p class=''>~ {{punchline.author}} 
-  <span ng-click='jokeCtrl.voteUp(punchline)' class="glyphicon glyphicon-chevron-up , pull-right" aria-hidden="true"></span>
-  <span ng-click='jokeCtrl.voteDown(punchline)' class="glyphicon glyphicon-chevron-down , pull-right" aria-hidden="true"></span> 
+  <span ng-click='jokeCtrl.voteUp(punchline)' class="glyphicon glyphicon-chevron-up , pull-right , {{punchline.colorUp}}" aria-hidden="true"></span>
+  <span ng-click='jokeCtrl.voteDown(punchline)' class="glyphicon glyphicon-chevron-down , pull-right , {{punchline.colorDown}}" aria-hidden="true"></span> 
   <span class='pull-right'>{{punchline.likes}}</span></p>
   &nbsp;                
 </li>
