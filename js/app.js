@@ -2,7 +2,7 @@
 angular.module('jokeApp', [])
   .controller('jokeController', function($scope, data) {
   
-    $scope.jokes = data.allJokes()
+    $scope.jokes = data.allJokes();
     
     this.voteUp = function(punchline) {
       if(punchline.voted === "n/a"){
