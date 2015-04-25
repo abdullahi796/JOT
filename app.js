@@ -88,7 +88,8 @@
       this.userLine = {};
       this.userLine.author = "anonymous"
       this.addPunchline = function (joke) {
-        joke.punchline.push(this.userLine)
+        joke.punchline.push(this.userLine);
+        this.userLine = {};
       };
   });
   
