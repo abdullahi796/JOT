@@ -83,4 +83,35 @@
             this.tab = newValue;
         };
   });
+  
+  app.controller('commentController',function() {
+      this.userLine = {};
+      this.userLine.author = "anonymous"
+      this.addPunchline = function (joke) {
+        joke.punchline.push(this.userLine)
+      };
+  });
+  
+  
+  app.directive('jokeSetup',function(){
+    return{
+      restrict: 'E',
+      templateUrl: 'joke-setup.html'
+    };
+  });
+  
+  app.directive('jokePunchline',function(){
+    return{
+      restrict: 'E',
+      templateUrl: 'joke-punchline.html'
+    };
+  });
+  
+    
+  app.directive('comment',function(){
+    return{
+      restrict: 'E',
+      templateUrl: 'comment.html'
+    };
+  });
 })();
