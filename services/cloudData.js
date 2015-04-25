@@ -103,15 +103,14 @@ angular.module('jokeApp')
     }    
     ];
     
-    // Initialize the Parse SDK!
-    Parse.initialize("j44HMde83dIGkvxlBPy78YD3wWwnuikdrDaO19VV", "ac1ol1aNi7bxuo0plV5ai2k4SxhViiukDTFEQZ9M");
-    for(var i=0;i<jokes.length;i++){  
-      
-    }
-
     return {
         allJokes: function() {
             return jokes;
+        },
+        updateCloud: function(joke,userLine) {
+          alert('fdsf');
+          joke.punchline.push(userLine);
         }
+        
     }
 })

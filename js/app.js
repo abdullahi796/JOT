@@ -4,6 +4,7 @@ angular.module('jokeApp', [])
   
     $scope.jokes = data.allJokes();
     
+    
     this.voteUp = function(punchline) {
       if(punchline.voted === "n/a"){
         punchline.voted = 'up';
