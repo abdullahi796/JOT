@@ -19,12 +19,13 @@
         <script type="text/javascript" src="directives/commentDirective.js"></script>
         <script type="text/javascript" src="directives/jokePunchline.js"></script>
         <script type="text/javascript" src="directives/jokeSetup.js"></script>
+        <script type="text/javascript" src="services/data.js"></script>
         <title>JOT</title>
     </head>
     <body>
         <div id='wrapper' ng-controller='jokeController as jokeCtrl'>
           <div ng-controller = 'panelController as panelCtrl'>
-            <div id='contents' ng-repeat='joke in jokeCtrl.jokes'>
+            <div id='contents' ng-repeat='joke in jokes'>
             <div class="panel panel-default" ng-click='panelCtrl.panelClick(joke.num)'>
               <!-- Default panel contents -->
               <div class="panel-heading"></div>
