@@ -25,7 +25,7 @@
               <div class="panel-heading"></div>
                 <joke-setup></joke-setup>
                 <!-- List group -->
-                <ul class="list-group" ng-repeat='punchline in joke.punchline'>
+                <ul class="list-group" ng-repeat='punchline in joke.punchline | orderBy:"-likes"'>
                   <joke-punchline></joke-punchline>
                 </ul>
             </div> 
