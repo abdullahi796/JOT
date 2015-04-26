@@ -33,8 +33,6 @@ angular.module('jokeApp')
                     };
                       jokes.push(tempJokes);  
                       $scope.$apply();
-                      num = 1;
-                      $scope.$apply();
                     }
                     punchlineData.getPunchline($scope.jokes,$scope);
                   },
