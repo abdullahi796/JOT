@@ -4,7 +4,7 @@
       $scope.currentUser = Parse.User.current();
       console.log('username');
       this.userLine = {};
-      this.userLine.author = data.getUser();
+      this.userLine.author = $scope.currentUser.get('username');
       this.userLine.likes = 0;       
       this.userLine.voted = "n/a";
       this.userLine.colorUp = 'na';
