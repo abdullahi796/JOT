@@ -13,7 +13,7 @@ angular.module('jokeApp')
           var user = Parse.User.current();
           
           punchline.set("text", userLine.text);
-          punchline.set("author",user);
+          punchline.set("author",userLine.author);
           punchline.set("likes", userLine.likes);
           punchline.set('voted',userLine.voted);
           punchline.set('colorUp',userLine.colorUp);
