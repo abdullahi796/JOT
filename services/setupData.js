@@ -3,7 +3,7 @@ angular.module('jokeApp')
 .factory('setupData',function dataFactory(punchlineData) {
     return {
         getSetup: function(jokes,$scope,num) {
-            Parse.initialize("j44HMde83dIGkvxlBPy78YD3wWwnuikdrDaO19VV", "ac1ol1aNi7bxuo0plV5ai2k4SxhViiukDTFEQZ9M");
+            Parse.initialize("eVYWdZhzLDkA4L18ZkD8B4h12RB8E4dAuMIQ69UE", "LWExGfepSIrWMkppZJObvktVR2WDyET9IIgwTg8L");
             var setup = Parse.Object.extend("Setup");
             var query = new Parse.Query(setup);     
             query.find({

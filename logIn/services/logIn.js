@@ -1,31 +1,19 @@
-angular.module('userApp')
-.factory('user',function dataFactory() {
+ angular.module('userApp')
+.factory('log',function dataFactory() {
     return {
         logIn: function(username,password) {
-            Parse.initialize("j44HMde83dIGkvxlBPy78YD3wWwnuikdrDaO19VV", "ac1ol1aNi7bxuo0plV5ai2k4SxhViiukDTFEQZ9M");
+            Parse.initialize("eVYWdZhzLDkA4L18ZkD8B4h12RB8E4dAuMIQ69UE", "LWExGfepSIrWMkppZJObvktVR2WDyET9IIgwTg8L");
+            
             Parse.User.logIn(username, password, {
               success: function(user) {
-                new indexView();
+                // Do stuff after successful login.
+                window.load('/index.html');
               },
               error: function(user, error) {
-                alert('Error');
+                // The login failed. Check error to see why.
+                alert(error.code);
               }
             });
-            
-            if (Parse.User.current()) {
-              new indexView();
-            } else {
-              new LogInView();
-            }
-            
-             var indexView = Parse.View.extend({
-              urlRoot: "/index.html"
-            });
-            
-             var LogInView = Parse.View.extend({
-              urlRoot: "login.html"
-            });
-            
-        }
+        },
     };
 });

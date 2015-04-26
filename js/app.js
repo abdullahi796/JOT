@@ -1,6 +1,6 @@
 
 angular.module('jokeApp', [])
-  .controller('jokeController', function($scope, data , setupData) {
+  .controller('jokeController', function($scope, data , setupData , user) {
 
     $scope.jokes = [];
     $scope.num = 0;
@@ -8,6 +8,15 @@ angular.module('jokeApp', [])
     (function(){
       setupData.getSetup($scope.jokes,$scope,$scope.num);
     })(); 
+    
+    if(user.checkStatus() === false){
+      window.load('/logIn/login.html');
+    }
+    else{
+      Parse.initialize("eVYWdZhzLDkA4L18ZkD8B4h12RB8E4dAuMIQ69UE", "LWExGfepSIrWMkppZJObvktVR2WDyET9IIgwTg8L");
+      var currentUser = Parse.User.current();
+      console.log(currentUser.Email);
+    }
     
   
     this.voteUp = function(punchline) {

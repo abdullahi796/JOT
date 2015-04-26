@@ -3,7 +3,7 @@ angular.module('jokeApp')
     var punchlineArr = [];
     return {
         getPunchline : function(jokes,$scope) {
-            Parse.initialize("j44HMde83dIGkvxlBPy78YD3wWwnuikdrDaO19VV", "ac1ol1aNi7bxuo0plV5ai2k4SxhViiukDTFEQZ9M");
+            Parse.initialize("eVYWdZhzLDkA4L18ZkD8B4h12RB8E4dAuMIQ69UE", "LWExGfepSIrWMkppZJObvktVR2WDyET9IIgwTg8L");
             var punchline = Parse.Object.extend("Punchline");
             var query = new Parse.Query(punchline);     
             query.find({

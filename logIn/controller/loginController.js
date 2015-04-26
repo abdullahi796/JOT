@@ -1,11 +1,11 @@
 angular.module('userApp',[])
-.controller('loginController',function(user) {
+.controller('loginController',function(log) {
     this.username;
     this.password;
     
     this.addUser = function() {
         console.log(this.username)
         console.log(this.password)
-        user.logIn(this.username,this.password)
+        log.logIn(this.username,this.password)
     }
 });
