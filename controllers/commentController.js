@@ -8,7 +8,7 @@
       this.userLine.colorDown = 'na';
       this.addPunchline = function (joke) {
         data.updateForm(joke,this.userLine);
-        data.updateCloud(joke,this.userLine);
+        //data.updateCloud(joke,this.userLine);
         /*
         joke.punchline.push(this.userLine);
         */

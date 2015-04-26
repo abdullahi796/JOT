@@ -19,11 +19,11 @@ angular.module('jokeApp')
           punchline.set('parent',joke.setup.objectId)
            
           punchline.save(null, {
-            success: function(gameScore) {
+            success: function(punchline) {
               // Execute any logic that should take place after the object is saved.
-              alert('New object created with objectId: ' + gameScore.id);
+              alert('New object created with objectId: ' + punchline.id);
             },
-            error: function(gameScore, error) {
+            error: function(punchline, error) {
               // Execute any logic that should take place if the save fails.
               // error is a Parse.Error with an error code and message.
               alert('Failed to create new object, with error code: ' + error.message);

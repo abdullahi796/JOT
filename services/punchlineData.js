@@ -32,6 +32,10 @@ angular.module('jokeApp')
                         }
                     }
                   } 
+                for(var c=0; c<jokes.length;c++){
+                        jokes[c].punchline.shift();
+                        $scope.$apply();
+                }                  
                 },
                 error: function(error) {
                   alert("Error: " + error.code + " " + error.message);
