@@ -1,7 +1,7 @@
 <div class="panel panel-default" ng-show='panelCtrl.isPanel(joke.num)'>
   <li class="list-group-item">
     <h5>{{commentCtrl.userLine.text}}</h5>
-    <p class='pull-right'>~ {{"anonymous"}} <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></p>
+    <p class='pull-right'>~ {{currentUser.get('username')}} <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></p>
     &nbsp;                
   </li>
   <div class="panel-body">

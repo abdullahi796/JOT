@@ -7,11 +7,13 @@ angular.module('jokeApp')
         },
         updateCloud: function(joke,userLine) {
           Parse.initialize("eVYWdZhzLDkA4L18ZkD8B4h12RB8E4dAuMIQ69UE", "LWExGfepSIrWMkppZJObvktVR2WDyET9IIgwTg8L");
+          
           var Punchline = Parse.Object.extend("Punchline");
           var punchline = new Punchline();
-           
+          var user = Parse.User.current();
+          
           punchline.set("text", userLine.text);
-          punchline.set("author", "Sean Plott");
+          punchline.set("author",user);
           punchline.set("likes", userLine.likes);
           punchline.set('voted',userLine.voted);
           punchline.set('colorUp',userLine.colorUp);
@@ -29,7 +31,7 @@ angular.module('jokeApp')
               alert('Failed to create new object, with error code: ' + error.message);
             }
           });     
-        }
+        },
         
     };
 });
