@@ -1,5 +1,5 @@
   angular.module('jokeApp')
-  .controller('commentController',function($scope, data) {
+  .controller('commentController',function($scope,data) {
       this.userLine = {};
       this.userLine.author = "anonymous"
       this.userLine.likes = 0;       
@@ -8,7 +8,7 @@
       this.userLine.colorDown = 'na';
       this.addPunchline = function (joke) {
         data.updateForm(joke,this.userLine);
-        data.updateCloud()
+        data.updateForm(this.joke,this.userLine);
         /*
         joke.punchline.push(this.userLine);
         */
