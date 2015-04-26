@@ -3,114 +3,100 @@ angular.module('jokeApp')
     var jokes = [
         {
         setup:{
-            text: 'Why did the chicken run across the road?',
-            author: 'Abdullahi Mahamed',
+            text: '',
+            author: '',
         },
-        punchline: [
-            {
-              text: 'She wanted to stretch her legs.',
-              author:'Jackie Marthart ',
-              likes: 3,          
-              voted: "n/a",
-              colorUp:'na',
-              colorDown:'na'
-            },
-            {
-              text: 'To prove to the possum it could actually be done!',
-              author:'Larry Ball',
-              likes: 13,          
-              voted: "n/a",
-              colorUp:'na',
-              colorDown:'na'
-            },
-            {
-              text: 'She was afraid someone would caesar!',
-              author:'Ibrahim Mahamed',
-              likes: 5,          
-              voted: "n/a",
-              colorUp:'na',
-              colorDown:'na'
-            },
-            {
-              text: 'She wanted to lay it on the line.',
-              author:'Kate Hammer',
-              likes: 10,          
-              voted: "n/a",
-              colorUp:'na',
-              colorDown:'na'
-            },
-        ],
+        punchline: [],
         num: 1
             
         },
         {
         setup: {
-            text: 'A horse walks into a bar The bartender asks "Why the long face? ',
-            author: 'Abdullahi Mahamed'
+            text: '',
+            author: '',
         },
-        punchline: [
-            {
-              text: 'The horse says I m clinically depressed',
-              author:'Jackie Marthart ',
-              likes: 5,          
-              voted: "n/a",
-              colorUp:'na',
-              colorDown:'na'
-            },
-            {
-              text: 'The horse, incapable of speaking, proceeds to run around the bar, breaking several items in the process.',
-              author:'Larry Ball',
-              likes: 25,          
-              voted: "n/a",
-              colorUp:'na',
-              colorDown:'na'
-            },
-        ],
+        punchline: [],
         num: 2
     },
         {
         setup: {
-            text: 'Why was the blonde fired from the M&Ms factory ?',
-            author: 'Abdullahi Mahamed'
+            text: '',
+            author: '',
         },
-        punchline: [
-            {
-              text: 'For absenteeism and theft of property.',
-              author:'Jackie Marthart ',
-              likes: 1,          
-              voted: "n/a",
-              colorUp:'na',
-              colorDown:'na'
-            },
-            {
-              text: "For throwing out all the W's",
-              author:'Larry Ball',
-              likes: 45,          
-              voted: "n/a",
-              colorUp:'na',
-              colorDown:'na'
-            },
-            {
-              text: 'For trying to alphabetize them',
-              author:'Ibrahim Mahamed',
-              likes: 10,          
-              voted: "n/a",
-              colorUp:'na',
-              colorDown:'na'
-            },
-        ],
+        punchline: [],
         num: 3
     }    
     ];
     
+    var punchlineArr = [];
+    var setupArr = [];
+    
     return {
+        getData: function() {
+              Parse.initialize("j44HMde83dIGkvxlBPy78YD3wWwnuikdrDaO19VV", "ac1ol1aNi7bxuo0plV5ai2k4SxhViiukDTFEQZ9M");
+              var punchline = Parse.Object.extend("Punchline");
+              var query = new Parse.Query(punchline);
+              query.find({
+                success: function(results) {
+                  alert("Successfully retrieved " + results.length + " scores.");
+                  // Do something with the returned Parse.Object values
+                    for (var c = 0; c < results.length; c++) { 
+                      var object = results[c];
+                      var punchlineObj = {
+                        text: object.get('text'),
+                        author: object.get('author'),
+                        likes: object.get('likes'),
+                        voted: object.get('voted'),
+                        colorUp: object.get('colorUp'),
+                        colorDown: object.get('colorDown'),
+                        parentId: object.get('parent')
+                      }
+                      punchlineArr.push(punchlineObj);
+                      console.log(punchlineArr);
+                    }
+                },
+                error: function(error) {
+                  alert("Error: " + error.code + " " + error.message);
+                }
+              });
+              
+              var setup = Parse.Object.extend("Setup");
+              var query = new Parse.Query(setup);
+              query.find({
+                success: function(results) {
+                  alert("Successfully retrieved " + results.length + " scores.");
+                  // Do something with the returned Parse.Object values
+                    for (var c = 0; c < results.length; c++) { 
+                      var object = results[c];
+                      var setupObj = {
+                        text: object.get('text'),
+                        author: object.get('author'),
+                        objectId: object.id
+                      }
+                      setupArr.push(setupObj);
+                      console.log(setupArr)
+                    }
+                },
+                error: function(error) {
+                  alert("Error: " + error.code + " " + error.message);
+                }
+              }); 
+              
+//              for(var i=0;i<jokes.length;)
+              
+              
+        },
         allJokes: function() {
             return jokes;
         },
-        updateCloud: function(joke,userLine) {
-          alert('fdsf');
+        updateForm: function(joke,userLine) {
+         //alert('Updated Form');
           joke.punchline.push(userLine);
+        },
+        updateCloud: function() {
+          Parse.initialize("j44HMde83dIGkvxlBPy78YD3wWwnuikdrDaO19VV", "ac1ol1aNi7bxuo0plV5ai2k4SxhViiukDTFEQZ9M");
+
         }
         
-    }
-})
+    };
+});

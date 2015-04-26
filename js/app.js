@@ -1,10 +1,18 @@
 
 angular.module('jokeApp', [])
   .controller('jokeController', function($scope, data) {
-  
+    
+    $scope.called = false;
+
+    (function(){
+      if($scope.called === false){
+      data.getData();
+      $scope.called = true;
+      }
+    })();
+        
     $scope.jokes = data.allJokes();
-    
-    
+
     this.voteUp = function(punchline) {
       if(punchline.voted === "n/a"){
         punchline.voted = 'up';
