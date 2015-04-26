@@ -10,15 +10,13 @@ angular.module('jokeApp', [])
     })(); 
     
     if(user.checkStatus() === false){
-      window.load('/logIn/login.html');
+     window.location.href= '/logIn/login.html' ;
     }
     else{
       Parse.initialize("eVYWdZhzLDkA4L18ZkD8B4h12RB8E4dAuMIQ69UE", "LWExGfepSIrWMkppZJObvktVR2WDyET9IIgwTg8L");
       var currentUser = Parse.User.current();
       console.log(currentUser.Email);
     }
-    
-  
     this.voteUp = function(punchline) {
       if(punchline.voted === "n/a"){
         punchline.voted = 'up';
@@ -37,6 +35,11 @@ angular.module('jokeApp', [])
       }
     };
     this.voteDown = function(punchline) {
+      alert("Logged Out");
+      Parse.initialize("eVYWdZhzLDkA4L18ZkD8B4h12RB8E4dAuMIQ69UE", "LWExGfepSIrWMkppZJObvktVR2WDyET9IIgwTg8L");
+      Parse.User.logOut();
+      window.location.href= '/logIn/login.html';
+      $scope.$apply();
       if(punchline.voted === "n/a"){
         punchline.voted = 'down';
         punchline.likes -=1;
@@ -54,7 +57,6 @@ angular.module('jokeApp', [])
       }
     };
     
-
     
   });
 

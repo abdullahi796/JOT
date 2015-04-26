@@ -7,7 +7,7 @@
             Parse.User.logIn(username, password, {
               success: function(user) {
                 // Do stuff after successful login.
-                window.load('/index.html');
+                window.location.href= '/index.html';
               },
               error: function(user, error) {
                 // The login failed. Check error to see why.
