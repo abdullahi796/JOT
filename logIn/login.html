@@ -1,32 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='userApp'>
     <head>
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-        
+        <script src="//www.parsecdn.com/js/parse-1.4.2.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="logIn/css/login.css" type="text/css" />
+        <link rel="stylesheet" href="css/login.css" type="text/css" />
+        <script type="text/javascript" src="controller/loginController.js"></script>
+        <script type="text/javascript" src="services/logIn.js"></script>
         <title> </title>
     </head>
     <body>
+    <script type="text/javascript">
+            Parse.initialize("j44HMde83dIGkvxlBPy78YD3wWwnuikdrDaO19VV", "ac1ol1aNi7bxuo0plV5ai2k4SxhViiukDTFEQZ9M");
+            
+            if (Parse.User.current()) {
+              new indexView();
+            } else {
+              new LogInView();
+            }
+            
+             var indexView = Parse.View.extend({
+              urlRoot: "/index.html"
+            });
+            
+             var LogInView = Parse.View.extend({
+              urlRoot: "login.html"
+            });        
+    </script>
       <section id="login">
           <div class="container">
           	<div class="row">
           	    <div class="col-xs-12">
               	    <div class="form-wrap">
                       <h1>Log in with your email account</h1>
-                          <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                          <form ng-controller = 'loginController as loginCtrl' ng-submit='loginCtrl.addUser()' autocomplete="off">
                               <div class="form-group">
-                                  <label for="email" class="sr-only">Email</label>
-                                  <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com">
+                                  <label for="username" class="sr-only">Email</label>
+                                  <input type="text" name="username" id="email" class="form-control" placeholder="somebody@example.com" ng-model = 'loginCtrl.username'>
                               </div>
                               <div class="form-group">
                                   <label for="key" class="sr-only">Password</label>
-                                  <input type="password" name="key" id="key" class="form-control" placeholder="Password">
+                                  <input type="password" name="key" id="key" class="form-control" placeholder="Password" ng-model = 'loginCtrl.password'>
                               </div>
                               <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
                           </form>

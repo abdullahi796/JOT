@@ -28,7 +28,7 @@ angular.module('jokeApp')
               // error is a Parse.Error with an error code and message.
               alert('Failed to create new object, with error code: ' + error.message);
             }
-          });          
+          });     
         }
         
     };

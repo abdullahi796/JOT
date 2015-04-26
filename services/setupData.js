@@ -42,7 +42,7 @@ angular.module('jokeApp')
                   alert("Error: " + error.code + " " + error.message);
                 }
               });
-              
+                            
         }
         
     };
