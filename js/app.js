@@ -1,35 +1,56 @@
 
 angular.module('jokeApp', [])
-  .controller('jokeController', function($scope, data) {
-    
-    $scope.called = false;
+  .controller('jokeController', function($scope, data , setupData) {
 
-    //setInterval(function() {data.getData()}, 3000);
-    
     $scope.jokes = [];
-  
+    $scope.num = 0;
+    
+    (function(){
+      setupData.getSetup($scope.jokes,$scope,$scope.num);
+    })(); 
+    
+    
+    
+    
+    
     /*
-    Parse.initialize("j44HMde83dIGkvxlBPy78YD3wWwnuikdrDaO19VV", "ac1ol1aNi7bxuo0plV5ai2k4SxhViiukDTFEQZ9M");
-    var setup = Parse.Object.extend("Setup");
-    var query = new Parse.Query(setup);     
+    $scope.setupRan = false;
+    $scope.punchlineRan = false;
     
-    query.count({
-      success: function(count) {
-        // The count request succeeded. Show the count
-        for(var i=0;i<count;i++){
-          data.pushJoke($scope.jokes)  
-          $scope.$apply();
-        }
-        alert("Sean has played " + $scope.jokes.length + " games");
-      },
-      error: function(error) {
-        // The request failed
-      }
-    });
+    if($scope.setupRan === true){
+      $scope.punchlineRan = punchlineData.getPunchline($scope.jokes,$scope,$scope.setupRan);   
+    }
+    else{
+      $scope.setupRan = setupData.getSetup($scope.jokes,$scope);
+    }
+    
+    if($scope.punchlineRan === false){
+      $scope.punchlineRan = punchlineData.getPunchline($scope.jokes,$scope,$scope.punchlineRan);       
+    }
     */
-    data.updateSetup($scope.jokes,$scope);
-    $scope.$apply();
     
+    /*
+    (function(){
+      setupData.getSetup($scope.jokes,$scope);
+      $scope.setupRan = true;
+    })();
+    
+    (function(){
+      punchlineData.getPunchline($scope.jokes,$scope);
+      $scope.punchlineRan = true;
+    })();
+    
+    if($scope.setupRan === false){
+      setupData.getSetup($scope.jokes,$scope);      
+    }
+    
+    if($scope.punchlineRan === false){
+      punchlineData.getPunchline($scope.jokes,$scope);     
+    }
+    */
+    console.log("Punchline Data : " + $scope.punchlineRan)
+    console.log('Setup Data : ' + $scope.setupRan)
+  
           
     this.voteUp = function(punchline) {
       if(punchline.voted === "n/a"){
@@ -66,6 +87,7 @@ angular.module('jokeApp', [])
       }
     };
     
+
     
   });
 
