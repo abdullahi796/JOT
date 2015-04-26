@@ -12,12 +12,12 @@
       
       this.addPunchline = function (joke) {
         data.updateForm(joke,this.userLine);
-        //data.updateCloud(joke,this.userLine);
+        data.updateCloud(joke,this.userLine);
         /*
         joke.punchline.push(this.userLine);
         */
         this.userLine = {};
-        this.userLine.author = data.getUser();
+        this.userLine.author = $scope.currentUser.get('username');
         this.userLine.likes = 0;       
         this.userLine.voted = "n/a";
         this.userLine.colorUp = 'na';
