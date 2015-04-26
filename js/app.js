@@ -4,14 +4,20 @@ angular.module('jokeApp', [])
     
     $scope.called = false;
 
+    setInterval(function() {data.getData()}, 3000);
+
+    /*
     (function(){
-      if($scope.called === false){
       data.getData();
-      $scope.called = true;
-      }
     })();
+    
+    (function(){
+      data.getData();
+    })();
+    */
         
     $scope.jokes = data.allJokes();
+    
 
     this.voteUp = function(punchline) {
       if(punchline.voted === "n/a"){
@@ -46,6 +52,8 @@ angular.module('jokeApp', [])
         punchline.likes +=1;
         punchline.colorDown='na'
       }
-    };    
+    };
+    
+    
   });
 
